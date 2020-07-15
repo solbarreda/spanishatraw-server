@@ -24,6 +24,7 @@ export class User extends BaseModel {
   @Column({
     type: 'char',
     length: 64,
+    unique: true,
   })
   email: string;
 }
