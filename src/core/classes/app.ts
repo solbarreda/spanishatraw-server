@@ -14,7 +14,7 @@ import { ApolloServer } from 'apollo-server-express';
 
 export class Server {
   private app: Application = express();
-  private port: number = 8000;
+  private port: number | string = 8000;
   private databaseConnectionOptions: IDatabaseConnectionOptions;
   private dbConnection: IDBConnection;
   private apolloServerOptions: IApolloServerExpressConfig;
@@ -31,13 +31,13 @@ export class Server {
   }
 
   private middleWares(middleWares: IMiddleWare[]) {
-    middleWares.forEach((middleWare) => {
+    middleWares.forEach(middleWare => {
       this.app.use(middleWare);
     });
   }
 
   private routes(routers: Router[]) {
-    routers.forEach((router) => {
+    routers.forEach(router => {
       this.app.use(router.baseUrl, router.router);
     });
   }
@@ -54,6 +54,7 @@ export class Server {
       this.dbConnection = await getDatabaseConnection(
         this.databaseConnectionOptions,
       );
+      console.log(`Connected to '${this.dbConnection.name}' database.`);
     } catch (dbConnectionError) {
       console.error('Error connecting to the database =>', dbConnectionError);
     }

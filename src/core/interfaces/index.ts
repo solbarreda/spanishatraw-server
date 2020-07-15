@@ -32,7 +32,7 @@ type IMiddleWare = IBaseExpressFunction;
 type IController = IBaseExpressFunction;
 
 type IServer = {
-  port?: number;
+  port?: number | string;
   databaseConnectionOptions?: IDatabaseConnectionOptions;
   middleWares?: IMiddleWare[];
   routers?: Router[];

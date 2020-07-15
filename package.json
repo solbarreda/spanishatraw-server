@@ -7,7 +7,7 @@
     "compile": "tsc && node -r dotenv/config dist/index.js",
     "dev": "nodemon -e ts --exec \"npm run compile\"",
     "typeorm": "ts-node --require module-alias/register ./node_modules/typeorm/cli -f ./src/core/db/options.ts",
-    "migrate": "npm run typeorm -- migration:run",
+    "migrate": "rm -rf ./dist && tsc && npm run typeorm -- migration:run",
     "revertsmigrate": "npm run typeorm -- migration:revert",
     "showmigrations": "npm run typeorm -- migration:show",
     "makemigrations": "npm run typeorm -- migration:generate -n data",
