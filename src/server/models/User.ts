@@ -1,5 +1,7 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, OneToOne, JoinColumn } from 'typeorm';
 import { BaseModel } from '@baseClasses';
+
+import { UserType } from './UserType';
 
 // Database entity - TABLE
 @Entity()
@@ -27,4 +29,10 @@ export class User extends BaseModel {
     unique: true,
   })
   email: string;
+
+  @OneToOne(type => UserType)
+  @JoinColumn()
+  userType: UserType;
 }
+
+// firstName | lastName | age | email | userType_id
