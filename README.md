@@ -8,8 +8,11 @@
 ## Commands
 
 - Run server locally:
-
   - `npm run dev`
+
+### Migrations
+
+ `Remember to delete the 'dist' folder before any migration related command.`
 
 - Generate migration (SQL):
   - `npm run makemigrations`
@@ -19,5 +22,5 @@
   - `npm run createmigration -- <migration_name>`
 - Revert migrations:
   - `npm run revertsmigrate`
-- Show migrations plan: 
-  -`npm run showmigrations`
+- Show migrations plan:
+  - `npm run showmigrations`

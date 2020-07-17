@@ -1,10 +1,12 @@
 import { BaseController } from '@baseClasses';
 import { httpStatus, MethodsEnum } from '@interfaces';
+
 import { User } from '@models';
 
 class CreateUserController extends BaseController {
   mMethod = MethodsEnum.POST;
   mPath = '/';
+  // '/user/'
 
   controllerMethod = async () => {
     const user = new User();
@@ -19,10 +21,10 @@ class CreateUserController extends BaseController {
 
 class RetrieveUserController extends BaseController {
   mMethod = MethodsEnum.GET;
-  mPath = '/:id';
+  mPath = '/:userId';
 
   controllerMethod = async () => {
-    const id = this.req.params['id'];
+    const id = this.req.params['userId'];
     const user = await User.findOne(id);
     if (user) {
       this.success(httpStatus.OK, user);
@@ -76,9 +78,9 @@ class RetrieveUserController extends BaseController {
 //   };
 // }
 
-export default {
+export {
   CreateUserController,
-  // RetrieveTaskController,
+  RetrieveUserController,
   // ListTaskController,
   // UpdateTaskController,
   // DeleteTaskController,
