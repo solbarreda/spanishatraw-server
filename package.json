@@ -4,14 +4,14 @@
   "description": "ToDo backend application",
   "main": "src/index.js",
   "scripts": {
-    "compile": "tsc && node -r dotenv\\config dist\\index.js",
+    "compile": ".\\node_modules\\.bin\\tsc && node -r dotenv\\config dist\\index.js",
     "dev": "nodemon -e ts --exec \"npm run compile\"",
     "typeorm": ".\\node_modules\\.bin\\ts-node --require module-alias\\register .\\node_modules\\typeorm\\cli -f .\\src\\core\\db\\options.ts",
-    "migrate": "tsc && npm run typeorm -- migration:run",
-    "revertsmigrate": "tsc && npm run typeorm -- migration:revert",
-    "showmigrations": "tsc && npm run typeorm -- migration:show",
-    "makemigrations": "tsc && npm run typeorm -- migration:generate -n data",
-    "createmigration": "tsc && npm run typeorm -- migration:create -n"
+    "migrate": ".\\node_modules\\.bin\\tsc && npm run typeorm -- migration:run",
+    "revertsmigrate": ".\\node_modules\\.bin\\tsc && npm run typeorm -- migration:revert",
+    "showmigrations": ".\\node_modules\\.bin\\tsc && npm run typeorm -- migration:show",
+    "makemigrations": ".\\node_modules\\.bin\\tsc && npm run typeorm -- migration:generate -n data",
+    "createmigration": ".\\node_modules\\.bin\\tsc && npm run typeorm -- migration:create -n"
   },
   "keywords": [
     "todo",
