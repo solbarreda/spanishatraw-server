@@ -1,8 +1,5 @@
 import { Router } from '@baseClasses';
-import { TaskControllers } from '../controllers';
 
-class MainRouter extends Router {
-  controllers = this.setControllers(TaskControllers);
-}
+class UserRouter extends Router {}
 
-export default [new MainRouter('/task')];
+export default [new UserRouter('/user')];
