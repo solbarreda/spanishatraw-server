@@ -42,11 +42,9 @@ export class User extends BaseModel {
   contactUs: ContactUs[];
 
   @OneToOne(type => Testimonial)
-  @JoinColumn()
   testimonial: Testimonial;
 
-  @OneToOne(type => Invoice)
-  @JoinColumn()
+  @OneToOne(_ => Invoice)
   invoice: Invoice;
 }
 

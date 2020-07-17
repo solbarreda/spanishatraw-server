@@ -4,7 +4,8 @@ import { BaseModel } from '@baseClasses';
 @Entity()
 export class EvidenceGallery extends BaseModel {
   @Column({
-    type: 'text',
+    type: 'char',
+    length: 128,
   })
   image: String;
 
@@ -15,7 +16,7 @@ export class EvidenceGallery extends BaseModel {
 
   @Column({
     type: 'char',
-    length: 16,
+    length: 64,
   })
   name: String;
 }

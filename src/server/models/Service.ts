@@ -1,18 +1,17 @@
 import {
   Entity,
-  PrimaryGeneratedColumn,
   Column,
   ManyToMany,
   JoinColumn,
   JoinTable,
   OneToOne,
+  OneToMany,
 } from 'typeorm';
-import { AgeRange } from './AgeRange';
-import { type } from 'os';
-import { Homework } from './Homework';
+import { AgeRange, Homework } from '@models';
+import { BaseModel } from '@baseClasses';
 
 @Entity()
-export class Service {
+export class Service extends BaseModel {
   @Column({
     type: 'char',
     length: 64,
@@ -34,11 +33,10 @@ export class Service {
   })
   schedule: any;
 
-  @ManyToMany(type => AgeRange, ageRange => ageRange.service)
+  @ManyToMany(_ => AgeRange, ageRange => ageRange.service)
   @JoinTable()
   ageRanges: AgeRange[];
 
-  @OneToOne(type => Homework)
-  @JoinColumn()
-  homework: Homework;
+  @OneToMany(_ => Homework, homework => homework.service)
+  homeworks: Homework[];
 }

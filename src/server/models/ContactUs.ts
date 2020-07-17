@@ -1,6 +1,7 @@
-import { Entity, Column, OneToOne, ManyToOne } from 'typeorm';
+import { Entity, Column, ManyToOne } from 'typeorm';
+
 import { BaseModel } from '@baseClasses';
-import { type } from 'os';
+
 import { User } from './User';
 
 @Entity()
@@ -16,7 +17,7 @@ export class ContactUs extends BaseModel {
   })
   description: string;
 
-  @ManyToOne(type => User, user => user.contactUs, { cascade: true })
+  @ManyToOne(_ => User, user => user.contactUs, { cascade: true })
   user: User;
 }
 

@@ -5,7 +5,7 @@ import { BaseModel } from '@baseClasses';
 export class Features extends BaseModel {
   @Column({
     type: 'char',
-    length: 16,
+    length: 64,
   })
   name: String;
 

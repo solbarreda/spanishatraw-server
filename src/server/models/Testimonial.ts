@@ -9,7 +9,7 @@ export class Testimonial extends BaseModel {
   })
   content: string;
 
-  @OneToOne(type => User, { cascade: true })
+  @OneToOne(_ => User, { cascade: true, onDelete: 'CASCADE' })
   @JoinColumn()
   user: User;
 }

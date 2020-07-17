@@ -1,10 +1,4 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToMany,
-  JoinTable,
-} from 'typeorm';
+import { Entity, Column, ManyToMany } from 'typeorm';
 import { BaseModel } from '@baseClasses';
 import { Service } from './Service';
 
@@ -20,6 +14,6 @@ export class AgeRange extends BaseModel {
   })
   max: number;
 
-  @ManyToMany(type => Service, service => service.ageRanges)
+  @ManyToMany(_ => Service, service => service.ageRanges)
   service: Service[];
 }

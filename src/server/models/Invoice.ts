@@ -1,15 +1,7 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  JoinColumn,
-  OneToOne,
-  OneToMany,
-} from 'typeorm';
+import { Entity, Column, JoinColumn, OneToOne } from 'typeorm';
+
 import { BaseModel } from '@baseClasses';
-import { type } from 'os';
-import { Service } from './Service';
-import { User } from './User';
+import { Service, User } from '@models';
 
 @Entity()
 export class Invoice extends BaseModel {
@@ -18,11 +10,11 @@ export class Invoice extends BaseModel {
   })
   chargeAmount: number;
 
-  @OneToOne(type => Service)
+  @OneToOne(_ => Service)
   @JoinColumn()
   service: Service;
 
-  @OneToOne(type => User, { cascade: true })
+  @OneToOne(_ => User, { cascade: true })
   @JoinColumn()
   user: User;
 }

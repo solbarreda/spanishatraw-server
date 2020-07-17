@@ -1,16 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne } from 'typeorm';
+import { Entity, Column, JoinColumn, OneToMany } from 'typeorm';
 import { BaseModel } from '@baseClasses';
+import { Service } from '@models';
 
 @Entity()
 export class Homework extends BaseModel {
   @Column({
-    type: 'text',
+    type: 'char',
+    length: 128,
   })
   file: string;
 
   @Column({
     type: 'text',
-    length: 128,
   })
   description: string;
 
@@ -19,4 +20,11 @@ export class Homework extends BaseModel {
     length: 64,
   })
   name: string;
+
+  @OneToMany(_ => Service, service => service.homeworks, {
+    cascade: true,
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn()
+  service: Service;
 }
