@@ -43,7 +43,7 @@ export class BaseController {
 
   protected error = (
     code: number = httpStatus.INTERNAL_SERVER_ERROR,
-    message?: string,
+    message?: any,
   ) => {
     this.res
       .status(code)

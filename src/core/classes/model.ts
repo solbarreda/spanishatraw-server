@@ -7,7 +7,7 @@ import {
 
 export abstract class BaseModel extends BaseEntity {
   @PrimaryGeneratedColumn()
-  private id: number;
+  public id: number;
 
   @Column({ type: 'timestamptz', nullable: false })
   private created: string = new Date().toISOString();

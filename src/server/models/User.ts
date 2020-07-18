@@ -3,7 +3,6 @@ import { BaseModel } from '@baseClasses';
 
 import { UserType } from './UserType';
 import { ContactUs } from './ContactUs';
-import { type } from 'os';
 import { Testimonial } from './Testimonial';
 import { Invoice } from './Invoice';
 
